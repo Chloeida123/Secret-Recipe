@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchFoods } from '../actions/foods'
 
-function Foods() {
+function Home() {
     const foods = useSelector((state) => state.foods)
     const dispatch = useDispatch()
 
@@ -20,13 +20,6 @@ function Foods() {
                         <div key={data.id}>
                             <img className='img-fluid img-thumbnail' width='350' height='350' src={data.images}/>
                             <h2 className='txtsize'>{data.name}</h2>
-                            <p>{data.description}</p>
-                            <p>Ingredients: {data.ingredients.split(',').map((ingredient, index) => (
-                                <li key={index}>{ingredient}</li>
-                            ))}</p>
-                            <p>Directions: {data.directions.split(',').map((direction, index)=> (
-                                <li key={index}>{direction}</li>
-                            ))}</p>
                         </div>
                     )
                 })}
@@ -35,4 +28,4 @@ function Foods() {
     )
 }
 
-export default Foods
+export default Home
