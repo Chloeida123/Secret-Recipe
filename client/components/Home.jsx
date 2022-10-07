@@ -15,7 +15,7 @@ function Home() {
 
     const handleClick = (e, id) => {
         e.preventDefault()
-        navigate('/recipes')
+        navigate(`/api/v1/foods/${id}`)
     }
 
     return (

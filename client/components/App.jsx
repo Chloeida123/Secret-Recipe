@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/recipes" element={<Foods/>} />
-         
+          <Route path="api/v1/foods/:id"element={<Food/>}/>
         </Routes>
       </BrowserRouter>
     </>
