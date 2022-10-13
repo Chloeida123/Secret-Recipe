@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
+import Button from 'react-bootstrap/Button'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchFoods } from '../actions/foods'
+import { fetchDeleteFood, fetchFoods } from '../actions/foods'
 
 function Foods() {
     const dispatch = useDispatch()
@@ -9,8 +10,6 @@ function Foods() {
     useEffect(() => {
         dispatch(fetchFoods())
     }, [])
-
-    
 
     return (
         <>
@@ -27,15 +26,14 @@ function Foods() {
                             <p>Directions: {data.directions.split(',').map((direction, index)=> (
                                 <li key={index}>{direction}</li>
                             ))}</p>
+                            
                         </div>
                     )
                 })}
-                <AddForm/>
             </div>
         </>
     )
 
 }
-
 
 export default Foods

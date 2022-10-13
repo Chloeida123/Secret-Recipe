@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
-import { fetchFoods } from '../actions/foods'
+import {fetchDeleteFood, fetchFoods } from '../actions/foods'
 
 function Home() {
     const foods = useSelector((state) => state.foods)
@@ -18,6 +18,11 @@ function Home() {
         navigate(`/api/v1/foods/${id}`)
     }
 
+    const handleDelete = (e,id) => {
+        e.preventDefault()
+        dispatch(fetchDeleteFood(id))
+    }
+
     return (
         <>
             <div className='flex'>
@@ -29,7 +34,7 @@ function Home() {
                                 <div className='tp-2 bd-highlight'><h2>{data.name}</h2></div>
                             </div>
                             <Button onClick={(e) => handleClick(e, data.id)}>The Recipe</Button>
-
+                            <Button onClick ={(e)=> handleDelete(e, data.id)}>Delete</Button>
                         </div>
                     )
                 })}

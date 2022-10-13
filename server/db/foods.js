@@ -20,9 +20,16 @@ function search(name, db=connection){
   .where('name','like',`%${name}%`)
 }
 
+function deleteFood(id, db=connection){
+  return db('foods')
+  .where('id',id)
+  .delete()
+}
+
 module.exports = {
   getFoods,
   search,
   addFood,
-  getOneFood
+  getOneFood,
+  deleteFood
 }

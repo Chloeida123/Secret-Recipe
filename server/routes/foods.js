@@ -39,4 +39,10 @@ router.get('/query/:name', async ( req,res)=> {
     }
   })
 
+router.delete('/:id', async (req,res) => {
+  const id = req.params.id
+  const delFood = await db.deleteFood(id)
+  res.json(delFood)
+})
+
 module.exports = router

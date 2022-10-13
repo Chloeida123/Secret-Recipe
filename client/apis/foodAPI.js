@@ -34,3 +34,13 @@ export async function searchFoods(name){
     console.error(err.message)
   }
 }
+
+export async function deleteFoodData(id){
+  try{
+    const res = await request.delete(rootUrl + id)
+    return res.body
+  }
+  catch (err) {
+    console.error(err.message)
+  }
+}

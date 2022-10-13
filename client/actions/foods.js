@@ -1,8 +1,9 @@
-import { addOneFood, getFoods, searchFoods } from '../apis/foodAPI'
+import { addOneFood, deleteFoodData, getFoods, searchFoods } from '../apis/foodAPI'
 
 export const SET_FOODS = 'SET_FOODS'
 export const SEARCH_FOOD = 'SEARCH_FOOD'
 export const ADD_FOOD = 'ADD_FOOD'
+export const DELETE_FOOD = 'DELETE_FOOD'
 
 export function setFoods(foods) {
   return {
@@ -25,6 +26,13 @@ export function searchFood(foods) {
   }
 }
 
+export function deleteFood(id){
+  return {
+    type: DELETE_FOOD,
+    payload: id
+  }
+}
+
 //THUNK
 
 export function fetchFoods() {
@@ -44,5 +52,11 @@ export function fetchAddedFood(data){
 export function fetchSearchFood(data){
   return(dispatch) => {
     return searchFoods(data).then((res)=> dispatch(searchFood(res)))
+  }
+}
+
+export function fetchDeleteFood(id){
+  return(dispatch) => {
+    return deleteFoodData(id).then(() => dispatch(deleteFood(id)))
   }
 }
