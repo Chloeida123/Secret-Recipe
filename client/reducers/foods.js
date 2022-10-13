@@ -1,4 +1,4 @@
-import { SEARCH_FOOD, SET_FOODS } from '../actions/foods'
+import { ADD_FOOD, SEARCH_FOOD, SET_FOODS } from '../actions/foods'
 
 const initialState = []
 
@@ -9,6 +9,8 @@ const reducer = (state = initialState, action) => {
       return payload
     case SEARCH_FOOD:
       return payload
+    case ADD_FOOD:
+      return [...state, payload]
     default:
       return state
   }

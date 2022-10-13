@@ -14,10 +14,15 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:id', async (req,res)=> {
+router.post('/', async (req,res)=> {
   try {
-    const oneFood = await db.getOneFood()
+    const {name, description, ingredients, directions, images} = req.body
+    const data = {name, description, ingredients, directions, images}
+    const idArr = await db.addFood(data)
+    const id = idArr[0]
+    const oneFood = await db.getOneFood(id)
     res.json(oneFood)
+    
   }
   catch (err) {
     res.status(500).json({ message: 'Something went wrong' })

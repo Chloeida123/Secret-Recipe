@@ -38,6 +38,7 @@ function NavBar() {
 
                                     <NavLink eventKey="1" as={Link} to='/'>Home</NavLink>
                                     <NavLink eventKey="2" as={Link} to='/recipes'>Recipes</NavLink>
+                                    <NavLink eventKey="3" as={Link} to='/addRecipe'>Add Food Recipe</NavLink>
 
                                     {/* <NavDropdown
                                         title="Dropdown"

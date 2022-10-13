@@ -13,6 +13,17 @@ export async function getFoods() {
   }
 }
 
+export async function addOneFood(food){
+  try{
+    const res = await request.post(rootUrl)
+    .send(food)
+    return res.body
+  }
+  catch (err) {
+    console.error(err.message)
+  }
+}
+
 export async function searchFoods(name){
   try{
     const res = await request
