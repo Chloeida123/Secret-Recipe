@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams} from 'react-router-dom'
 import { fetchFoods } from '../actions/foods'
+import Button from 'react-bootstrap/Button'
+
 
 function Foods() {
     const dispatch = useDispatch()
-    const { id } = useParams()
-    console.log(id)
-    const foodIdArr = useSelector((state) => state.foods)
-    console.log(foodIdArr)
-    const foodDetail = foodIdArr.length > 0 && foodIdArr.find(e => e.id == id)
-    console.log(foodDetail)
+    const navigate = useNavigate()
 
+    const { id } = useParams()
+    const foodIdArr = useSelector((state) => state.foods)
+    const foodDetail = foodIdArr.length > 0 && foodIdArr.find(e => e.id == id)
+   
     useEffect(() => {
         dispatch(fetchFoods())
     }, [])
@@ -32,6 +33,7 @@ function Foods() {
                         ))}</p>
                     </div>
                 }
+                <Button onClick ={()=> navigate(-1)}>Back</Button>
 
             </div>
         </>
