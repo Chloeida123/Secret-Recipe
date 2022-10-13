@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Navigate, useNavigate, useParams} from 'react-router-dom'
+import { useNavigate, useParams} from 'react-router-dom'
 import { fetchFoods } from '../actions/foods'
 import Button from 'react-bootstrap/Button'
 

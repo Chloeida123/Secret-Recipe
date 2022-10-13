@@ -1,4 +1,5 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
@@ -8,8 +9,13 @@ import { NavLink } from 'react-bootstrap'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import { Link } from 'react-router-dom'
+import { fetchSearchFood } from '../actions/foods'
+import { useState } from 'react'
 
 function NavBar() {
+    const [food,setFood] = useState(null)
+    const dispatch = useDispatch()
+
     return (
         <>
             {[false].map((expand) => (
@@ -47,14 +53,25 @@ function NavBar() {
                                         </NavDropdown.Item>
                                     </NavDropdown>
                                 </Nav>
-                                <Form className="d-flex">
+                                {/* <Form className="d-flex">
                                     <Form.Control
                                         type="search"
                                         placeholder="Search"
                                         className="me-2"
                                         aria-label="Search"
                                     />
-                                    <Button variant="outline-success">Search</Button>
+                                    <Button variant="outline-success" onClick={()=> dispatchEvent(fetchSearchFood(food))}>Search</Button>
+                                </Form> */}
+
+                                <Form className="d-flex">
+                                    <Form.Control
+                                        type="search"
+                                        placeholder="Search"
+                                        className="me-2"
+                                        aria-label="Search"
+                                        onChange = {(e)=> setFood(e.target.value)}
+                                    />
+                                    <Button variant="outline-success" onClick={()=> dispatch(fetchSearchFood(food))}>Search</Button>
                                 </Form>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
