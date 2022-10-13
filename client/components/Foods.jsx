@@ -11,6 +11,8 @@ function Foods() {
         dispatch(fetchFoods())
     }, [])
 
+    
+
     return (
         <>
             <div className='flex'>

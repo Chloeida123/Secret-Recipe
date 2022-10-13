@@ -28,7 +28,6 @@ router.get('/query/:name', async ( req,res)=> {
   try{
     const name = req.params.name
     const searchFood = await db.search(name)
-    console.log(searchFood)
     res.json(searchFood)}
   catch (err) {
     res.status(500).json({ message: 'Something went wrong' })

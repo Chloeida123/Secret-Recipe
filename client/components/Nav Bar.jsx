@@ -13,7 +13,7 @@ import { fetchSearchFood } from '../actions/foods'
 import { useState } from 'react'
 
 function NavBar() {
-    const [food,setFood] = useState(null)
+    const [food,setFood] = useState('')
     const dispatch = useDispatch()
 
     return (
@@ -39,7 +39,7 @@ function NavBar() {
                                     <NavLink eventKey="1" as={Link} to='/'>Home</NavLink>
                                     <NavLink eventKey="2" as={Link} to='/recipes'>Recipes</NavLink>
 
-                                    <NavDropdown
+                                    {/* <NavDropdown
                                         title="Dropdown"
                                         id={`offcanvasNavbarDropdown-expand-${expand}`}
                                     >
@@ -51,17 +51,8 @@ function NavBar() {
                                         <NavDropdown.Item href="#action5">
                                             Something else here
                                         </NavDropdown.Item>
-                                    </NavDropdown>
+                                    </NavDropdown> */}
                                 </Nav>
-                                {/* <Form className="d-flex">
-                                    <Form.Control
-                                        type="search"
-                                        placeholder="Search"
-                                        className="me-2"
-                                        aria-label="Search"
-                                    />
-                                    <Button variant="outline-success" onClick={()=> dispatchEvent(fetchSearchFood(food))}>Search</Button>
-                                </Form> */}
 
                                 <Form className="d-flex">
                                     <Form.Control

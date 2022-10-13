@@ -8,7 +8,6 @@ const reducer = (state = initialState, action) => {
     case SET_FOODS:
       return payload
     case SEARCH_FOOD:
-      console.log(payload)
       return payload
     default:
       return state

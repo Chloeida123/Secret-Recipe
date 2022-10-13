@@ -17,7 +17,6 @@ export async function searchFoods(name){
   try{
     const res = await request
     .get(rootUrl+ '/query/'+ name)
-    console.log (res.body)
     return res.body
   }
   catch (err) {

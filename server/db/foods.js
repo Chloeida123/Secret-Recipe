@@ -6,8 +6,7 @@ function getFoods(db=connection) {
 
 function search(name, db=connection){
   return db('foods')
-  .select()
-  .where('name',name)
+  .where('name','like',`%${name}%`)
 }
 
 module.exports = {
